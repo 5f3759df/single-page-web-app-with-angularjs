@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="./angular.min.js"></script>
+    <script src="./app.js"></script>
+</head>
+
+<body ng-app="nameCalculator">
+    <header>
+        <h1>Ascii name calculator</h1>
+    </header>
+    <div ng-controller="nameCalculatorCtrl">
+        <div>
+            <input type="text" ng-model="name" ng-keyup="displayNumeric()">
+        </div>
+        <div>
+            Name length: {{totalValue}}
+        </div>
+    </div>
+</body>
+
+</html>
