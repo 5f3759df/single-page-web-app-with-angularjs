@@ -44,7 +44,7 @@
 
                 $scope.displayMessage = function() {
                     var numOfDishes = CountDishes($scope.menu);
-                    console.log(numOfDishes);
+                    console.log("Number of dishes: " + numOfDishes);
                     if (numOfDishes < 1) {
                         $scope.message = "Please enter data first";
                     } else if (numOfDishes > 3) {
