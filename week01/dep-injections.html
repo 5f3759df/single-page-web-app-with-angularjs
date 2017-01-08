@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="Module">
+
+    </div>
+    <script>
+        (function() {
+            'use strict';
+
+            angular
+                .module('Module')
+                .controller('ControllerCtrl', ControllerCtrl)
+
+            /** @ngInject */
+            function ControllerCtrl() {
+                console.log($scope);
+
+            }
+
+        }());
+    </script>
+</body>
+
+</html>
