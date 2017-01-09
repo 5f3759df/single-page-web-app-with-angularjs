@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="LunchCheck">
 
 <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+
     <style>
         .message {
             font-size: 1.3em;
@@ -14,58 +16,24 @@
     </style>
 </head>
 
-<body ng-app="MyApp">
-    <div class="container" ng-controller="MyController">
+<body>
+    <div class="container" ng-controller="LunchCheckController">
         <h1>Lunch Checker</h1>
 
-        <div class="form-group">
+        <div ng-class="formClass">
             <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="menu">
+
         </div>
         <div class="form-group">
             <button class="btn btn-default" ng-click="displayMessage()">Check If Too Much</button>
         </div>
-        <div class="form-group message">
+        <div ng-class="messageClass">
             {{message}}
         </div>
+        <div>
+            <p class="text-info"><b>Information:</b> I do NOT consider and empty item, i.e., , , as an item towards to the count</p>
+        </div>
     </div>
-
-
-    <script>
-        (function() {
-            'use strict';
-            angular.module('MyApp', [])
-                .controller('MyController', MyController);
-
-            MyController.$inject = ['$scope'];
-
-            function MyController($scope) {
-                $scope.message = "";
-                $scope.menu = "";
-
-                $scope.displayMessage = function() {
-                    var numOfDishes = CountDishes($scope.menu);
-                    console.log("Number of dishes: " + numOfDishes);
-                    if (numOfDishes < 1) {
-                        $scope.message = "Please enter data first";
-                    } else if (numOfDishes > 3) {
-                        $scope.message = "Too much!";
-                    } else {
-                        $scope.message = "Enjoy!";
-                    }
-                }
-
-                function CountDishes(string) {
-                    if (string == "") return 0;
-                    var dishesList = string.split(',');
-                    var counter = 0;
-                    for (var i = 0; i < dishesList.length; i++) {
-                        if (dishesList[i].trim()) counter++;
-                    }
-                    return counter;
-                }
-            }
-        }());
-    </script>
 </body>
 
 </html>
