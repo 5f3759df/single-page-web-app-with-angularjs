@@ -40,8 +40,8 @@
         var boughtItems = [];
 
         service.buyItem = function(itemIndex) {
-            var x = itemsToBuy.splice(itemIndex, 1);
-            boughtItems.push({ name: x[0].name, quantity: x[0].quantity });
+            var x = itemsToBuy.splice(itemIndex, 1)[0];
+            boughtItems.push(x);
         }
         service.getItemsToBuy = function() {
             return itemsToBuy;
