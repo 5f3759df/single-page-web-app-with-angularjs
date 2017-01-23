@@ -33,6 +33,8 @@
         var itemsToBuy = [
             { name: "cookies", quantity: 10 },
             { name: "apples", quantity: 5 },
+            { name: "milk", quantity: 3 },
+            { name: "banana", quantity: 4 },
             { name: "snacks", quantity: 40 }
         ];
         var boughtItems = [];
