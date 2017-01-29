@@ -35,9 +35,10 @@
         nItCtr.found = [];
 
         nItCtr.showMe = function() {
-            if (nItCtr.whatIwant === undefined || nItCtr.whatIwant === "")
+            if (nItCtr.whatIwant === undefined || nItCtr.whatIwant === "") {
                 nItCtr.message = "No results found for that query";
-            else {
+                nItCtr.found = [];
+            } else {
                 var x = nItCtr.whatIwant.toLowerCase();
                 MenuSearchService.getMatchedMenuItems(x)
                     .then(function(resp) {
