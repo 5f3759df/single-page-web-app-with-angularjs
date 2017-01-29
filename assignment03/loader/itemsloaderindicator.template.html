@@ -1,0 +1,22 @@
+<!--<div class="loader">-->
+<div class="col-xs-8 col-xs-push-2">
+    <div ng-transclude></div>
+    <table ng-show="itemsDir.foundItems.length > 0" class="table">
+        <!--<table>-->
+
+        <thead>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in itemsDir.foundItems">
+                <td>{{item.short_name}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><button class="btn btn-primary" ng-click="itemsDir.onRemove({index: $index});">Don't want this one!</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
