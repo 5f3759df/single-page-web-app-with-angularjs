@@ -35,18 +35,22 @@
         nItCtr.found = [];
 
         nItCtr.showMe = function() {
-            var x = nItCtr.whatIwant.toLowerCase();
-            MenuSearchService.getMatchedMenuItems(x)
-                .then(function(resp) {
-                    nItCtr.found = resp;
-                    // console.log(nItCtr.found);
+            if (nItCtr.whatIwant === undefined || nItCtr.whatIwant === "")
+                nItCtr.message = "No results found for that query";
+            else {
+                var x = nItCtr.whatIwant.toLowerCase();
+                MenuSearchService.getMatchedMenuItems(x)
+                    .then(function(resp) {
+                        nItCtr.found = resp;
+                        // console.log(nItCtr.found);
 
-                    if (nItCtr.found !== undefined)
-                        if (nItCtr.found.length < 1)
-                            nItCtr.message = "No results found for that query";
-                        else
-                            nItCtr.message = "";
-                });
+                        if (nItCtr.found !== undefined)
+                            if (nItCtr.found.length < 1)
+                                nItCtr.message = "No results found for that query";
+                            else
+                                nItCtr.message = "";
+                    });
+            }
         };
         nItCtr.remove = function(index) {
             nItCtr.found.splice(index, 1);
