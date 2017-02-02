@@ -10,7 +10,7 @@
     function CategoryItemsController(items) {
         var ctrlItems = this;
         ctrlItems.items = items.menu_items;
-        // console.log(ctrlItems.items);
+        console.log(ctrlItems.items);
     }
 
 
