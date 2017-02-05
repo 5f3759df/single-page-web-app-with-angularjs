@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <input type="email" name="email" ng-model="$ctrl.userInfo.email" required placeholder="E-mail" class="form-control">
-                <span ng-if="suform.email.$error.required  && suform.email.$touched" class="text-warning">
+                <span ng-if="suform.email.$error.required  && suform.email.$touched && suform.email.$invalid" class="text-warning">
                     Must be a valid email address: handle@domain format</span>
             </div>
 
