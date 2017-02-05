@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-md-offset-3 col-md-6 panel text-warning" ng-if="$ctrl.user">
+        <h4 class="panel-title text-center text-capitalize">User information:</h4>
+
+
+        <div class="panel-body col-sm-12">
+            <div class=""> First Name: {{$ctrl.user.firstName}} </div>
+            <div class=""> Last Name: {{$ctrl.user.lastName}} </div>
+            <div class=""> email: {{$ctrl.user.email}} </div>
+            <div class=""> Phone: {{$ctrl.user.phone}} </div>
+            <div class=""> Favorite dish: {{$ctrl.user.favoriteDishCode}} </div>
+        </div>
+
+        <div class="menu-item-tile col-md-12">
+            <div class="row">
+                <h5>Preview for {{$ctrl.userFavDish.short_name}}</h5>
+                <div class="col-sm-5">
+                    <div class="menu-item-photo">
+                        <div>{{$ctrl.userFavDish.short_name}}</div>
+                        <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.userFavDish.short_name}}.jpg" alt="{{$ctrl.userFavDish.name}}">
+                    </div>
+                    <div class="menu-item-price">{{$ctrl.userFavDish.price_small | currency}}<span> {{$ctrl.userFavDish.small_portion_name}}</span> {{$ctrl.userFavDish.price_large | currency}} <span>{{$ctrl.userFavDish.large_portion_name}}</span></div>
+                </div>
+                <div class="menu-item-description col-sm-7">
+                    <h3 class="menu-item-title">{{$ctrl.userFavDish.name}}</h3>
+                    <p class="menu-item-details">{{$ctrl.userFavDish.description}}</p>
+                </div>
+            </div>
+            <hr class="visible-xs">
+        </div>
+
+    </div>
+    <div class="col-md-offset-3 col-md-6 panel text-warning text-center" ng-if="!$ctrl.user">
+        {{$ctrl.message}}
+    </div>
+</div>
+<!--{{$ctrl.favDishPrev}}-->
+<!--{{$ctrl.favDishPrev}}-->

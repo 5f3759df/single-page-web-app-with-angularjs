@@ -1,0 +1,78 @@
+<div class="container">
+    <fieldset class="col-md-offset-3 col-md-6 panel panel-default text-warning">
+        <h4 class="panel-title text-center text-capitalize">Sign up for newsletter</h4>
+        <form class="form form-group panel-body" name='suform' novalidate>
+            <div class="form-group">
+                <input type="text" name="firstName" ng-model="$ctrl.userInfo.firstName" required ng-minlength="4" placeholder="First name" class="form-control">
+                <span ng-if="(suform.firstName.$error.required || suform.firstName.$error.minlength) && suform.firstName.$touched" class="text-warning">
+                First Name must be at least 4 characters long</span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="lastName" ng-model="$ctrl.userInfo.lastName" required ng-minlength="4" placeholder="Last name" class="form-control">
+                <span ng-if="(suform.lastName.$error.required || suform.lastName.$error.minlength) && suform.lastName.$touched" class="text-warning">
+                Last Name must be at least 4 characters long</span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="email" name="email" ng-model="$ctrl.userInfo.email" required placeholder="E-mail" class="form-control">
+                <span ng-if="suform.email.$error.required  && suform.email.$touched" class="text-warning">
+                    Must be a valid email address: handle@domain format</span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" name="phone" ng-model="$ctrl.userInfo.phone" pattern="(\d{3})-(\d{3})-(\d{3})" placeholder="Phone ###-###-####" class="form-control" required>
+                <span ng-if="suform.phone.$invalid && suform.phone.$touched" class="text-warning">
+                    Phone must be in the format ###-###-###.</span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" ng-keyup="$ctrl.checkIfDishCodeIsValid()" name="favoriteDishCode" min-length="2" ng-model="$ctrl.userInfo.favoriteDishCode" placeholder="Favourite dish code" class="form-control" required ng-valid=!$ctrl.isDishCodeCorrect>
+                <span ng-if="!$ctrl.isDishCodeCorrect && suform.favoriteDishCode.$touched" class="text-warning ">
+                      <!-- && suform.favoriteDishCode.$error.required-->
+                      {{suform.favoriteDishCode.$invalid}}<br>
+                    Wrong dish code</span>
+                <!--{{$ctrl.isDishCodeCorrect}}-->
+            </div>
+            <div class="form-group ">
+                <button type="button " class="btn btn-primary " ng-disabled="suform.$invalid" ng-click="$ctrl.addUser()">Submit</button>
+
+                <div class="row ">
+                    <span ng-if="!suform.$invalid" class="text-danger text-center">{{$ctrl.signingUpMessage}}</span>
+                </div>
+            </div>
+
+
+            <div class=" wall menu-item-description" ng-if="$ctrl.favDishPrev">
+
+                <!--{{$ctrl.favDishPrev}}-->
+                <!--{{$ctrl.favDishPrev}}-->
+
+                <div class="menu-item-tile col-md-12">
+                    <div class="row">
+                        <h5>Preview for {{$ctrl.favDishPrev.short_name}}</h5>
+                        <div class="col-sm-5">
+                            <div class="menu-item-photo">
+                                <div>{{$ctrl.favDishPrev.short_name}}</div>
+                                <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.favDishPrev.short_name}}.jpg" alt="{{$ctrl.favDishPrev.name}}">
+                            </div>
+                            <div class="menu-item-price">{{$ctrl.favDishPrev.price_small | currency}}<span> {{$ctrl.favDishPrev.small_portion_name}}</span> {{$ctrl.favDishPrev.price_large | currency}} <span>{{$ctrl.favDishPrev.large_portion_name}}</span></div>
+                        </div>
+                        <div class="menu-item-description col-sm-7">
+                            <h3 class="menu-item-title">{{$ctrl.favDishPrev.name}}</h3>
+                            <p class="menu-item-details">{{$ctrl.favDishPrev.description}}</p>
+                        </div>
+                    </div>
+                    <hr class="visible-xs">
+                </div>
+
+            </div>
+
+
+        </form>
+    </fieldset>
+
+
+</div>
