@@ -32,7 +32,7 @@
                 <input type="text" ng-keyup="$ctrl.checkIfDishCodeIsValid()" name="favoriteDishCode" min-length="2" ng-model="$ctrl.userInfo.favoriteDishCode" placeholder="Favourite dish code" class="form-control" required ng-valid=!$ctrl.isDishCodeCorrect>
                 <span ng-if="!$ctrl.isDishCodeCorrect && suform.favoriteDishCode.$touched" class="text-warning ">
                       <!-- && suform.favoriteDishCode.$error.required-->
-                      {{suform.favoriteDishCode.$invalid}}<br>
+                      <!--{{suform.favoriteDishCode.$invalid}}<br>-->
                     Wrong dish code</span>
                 <!--{{$ctrl.isDishCodeCorrect}}-->
             </div>
