@@ -19,7 +19,7 @@
                 $ctrl.favDishPrev = false;
             });
         } else {
-            $ctrl.message = "No user data, please sign up.";
+            $ctrl.message = "Not Signed Up Yet. Sign up Now!";
         }
     }
 })();
